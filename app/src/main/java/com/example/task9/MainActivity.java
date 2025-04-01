@@ -17,3 +17,27 @@ public class MainActivity extends AppCompatActivity {
     Button btnGo;
     String stringUrl;
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        address = findViewById(R.id.address);
+        btnGo = findViewById(R.id.btnGo);
+        wb = (WebView) findViewById(R.id.wb);
+
+        wb.getSettings().setJavaScriptEnabled(true);
+        wb.setWebViewClient(new WebViewClient() {
+
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                view.loadUrl(url);
+
+                return true;
+            }
+
+        });
+
+    }
+
+
+
